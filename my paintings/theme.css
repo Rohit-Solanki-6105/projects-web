@@ -1,0 +1,20 @@
+.theme1{
+    --bg_gray: rgb(39, 39, 39);
+    --before_after: rgba(255, 255, 255, 0.1);
+    --black: black;
+    --white: aliceblue;
+    --tr_black: rgba(0, 0, 0,0.3);
+    --art: rgba(255, 255, 255, 0.1);
+    --scroll_thumb_gray1 : rgb(94, 94, 94);
+    --scroll_thumb_gray2 : rgb(46, 46, 46);
+}
+:root{
+    --bg_gray: aliceblue;
+    --before_after: rgba(0, 0, 0, 0.1);
+    --black: aliceblue;
+    --white: rgb(0, 0, 0);
+    --tr_black: rgba(255, 255, 255, 0.3);
+    --art: rgba(0, 0, 0, 0.1);
+    --scroll_thumb_gray1 : rgb(217, 217, 217);
+    --scroll_thumb_gray2 : rgb(175, 182, 199);
+}
