@@ -1,0 +1,81 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+}
+
+h1{
+    margin: 0;
+    padding: 20px;
+    width: 97.3%;
+    text-align: center;
+    box-shadow: 0 0 10px black;
+    font-family: Cursive;
+}
+
+main{
+    height: 50vh;
+    width: 50vw;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0 0 20px black;
+    border-radius: 30px;
+}
+.add_todo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+.add_todo input,.add_todo button, .del_all{
+    padding: 5px;
+    font-size: larger;
+    border-radius: 10px;
+    background-color: transparent;
+}
+.add_todo input{
+    min-width: 30vw;
+}
+
+#todos{
+    margin: 10px;
+    height: 30vh;
+    width: calc(100% - 20px);
+    overflow: auto;
+}
+
+main .del_all{
+    position: absolute;
+    left: 30%;
+}
+.todo{
+    background-color: transparent;
+    border: 1px solid black;
+    width: calc(100% - 40px);
+    border-radius: 10px;
+    font-size: large;
+    margin: 10px;
+    padding: 5px;
+    font-family: cursive;
+}
+.todo span{
+    float: right;
+    padding-right: 5px;
+    font-family: tahoma;
+    padding-left: 10px;
+    border-left: 1px solid black;
+}
+.todo span:hover{
+    background-color: rgba(0,0,0,0.3);
+}
+.done{
+    background-color: rgba(0,0,0,0.2);
+    text-decoration: line-through;
+}
+
+.todo:hover{
+    box-shadow: 0 0 5px black;
+}
