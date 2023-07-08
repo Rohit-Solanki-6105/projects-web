@@ -44,7 +44,6 @@ nav ul li{
     float: right;
 }
 nav{
-    background: transparent;
     z-index: 100;
     position: fixed;
     height: 10px;
@@ -52,12 +51,9 @@ nav{
     padding: 1rem;
     transition: 1s;
     overflow: hidden;
-}
-nav:hover{
     background-color: var(--tr_black);
     height: 100px;
     box-shadow: 0 0 20px black;
-    transition: 1s;
 }
 nav ul li a, nav ul li{
     color: var(--white);
