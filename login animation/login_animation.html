@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: rgb(44, 44, 44);
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        form{
+            background-color: rgba(255, 255, 255, 0.1);
+            font-size: xx-large;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px black;
+            color: aliceblue;
+            height: 50vh;
+        }
+        input{
+            background-color: transparent;
+            color: aliceblue;
+            font-size: xx-large;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 20px;
+            border: none;
+            box-shadow: inset 0 0 10px black;
+        }
+        button{
+            font-size: xx-large;
+            color: aliceblue;
+            padding: 10px;
+            background-color: transparent;
+            border-radius: 20px;
+            position: absolute;
+            margin: 20px;
+            transition: 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="username">UserName: </label><input type="text" name="username" id="username" required><br><br>
+        <label for="pass">Password: </label><input type="password" name="pass" id="pass" required><br><br>
+        <button type="submit" id="login_btn" onclick="alert('thanks')">Login</button>
+    </form>
+</body>
+<script>
+document.querySelector("button").addEventListener("mousemove", function(){
+    username = document.getElementById("username").value;
+    password = document.getElementById("pass").value;
+    button = document.getElementById("login_btn");
+    // console.log(username, password);
+    if(username.length <= 0 || password.length < 8){
+        x = parseInt(Math.random() * (90 - 10) + 10);
+        y = parseInt(Math.random() * (90 - 10) + 10);
+        console.log(x, y);
+        
+        button.style.position = "absolute";
+        button.style.top = x+"%";
+        button.style.left = y+"%";
+    }
+    else{
+        button.style.position = "static";
+    }
+})
+</script>
+</html>
