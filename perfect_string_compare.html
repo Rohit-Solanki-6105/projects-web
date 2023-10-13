@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+let string1 = "this iS geeksfor    Geeks";
+let string2 = "This IS GeeksfOrgeeks";
+
+function compareStringsIgnoreWhitespace(str1, str2) { // function to compare two strings without spaces
+    str1 = str1.toLowerCase();
+    str2 = str2.toLowerCase();
+  // Remove all whitespace characters from both strings.
+  str1 = str1.replace(/\s/g, "");
+  str2 = str2.replace(/\s/g, "");
+
+  // Compare the two strings without whitespace.
+  return str1 === str2;
+}
+
+console.log(compareStringsIgnoreWhitespace(string1,string2));
+    </script>
+</body>
+</html>
