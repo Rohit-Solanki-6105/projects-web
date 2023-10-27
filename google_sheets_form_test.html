@@ -43,7 +43,7 @@
 <body>
     <form name="submit-to--google-sheet">
         <input type="text" name="Full name" id="fullname" placeholder="Full name" required><br>
-        <input type="text" name="Email" id="email" placeholder="Email" required><br>
+        <input type="email" name="Email" id="email" placeholder="Email" required><br>
         <select name="Course" id="course">
             <option>Course</option>
             <option value="MCS">MCS</option>
@@ -61,7 +61,7 @@ const form = document.forms['submit-to--google-sheet']
 form.addEventListener('submit', e=>{
     e.preventDefault()
     fetch(scriptURL, {method: 'POST', body: new FormData(form)})
-    .then(response => console.log("Success", response))
+    .then(response => {console.log("Success", response); alert("Success")})
     .catch(error => console.error("Error!", error.message))
 })
 </script>
