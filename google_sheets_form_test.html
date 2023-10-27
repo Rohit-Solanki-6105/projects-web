@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sheets test</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-image: linear-gradient(45deg, rgb(7, 39, 66), rgb(47, 86, 142));
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        form{
+            border: 1px solid white;
+            border-radius: 20px;
+            padding: 20px;
+        }
+        input, select, button{
+            background: transparent;
+            color: white;
+            font-size: xx-large;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+        select option{
+            background-color: rgb(25, 52, 75);
+            color: white;
+        }
+
+        input::placeholder, button{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <form name="submit-to--google-sheet">
+        <input type="text" name="Full name" id="fullname" placeholder="Full name" required><br>
+        <input type="text" name="Email" id="email" placeholder="Email" required><br>
+        <select name="Course" id="course">
+            <option>Course</option>
+            <option value="MCS">MCS</option>
+            <option value="MCA">MCA</option>
+            <option value="PGDCA">PGDCA</option>
+        </select>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbxdxuDIOMqzrqwuPxu9L1IUlAyfIj828kz_gVAV0yEzO0LyzHeipdJYuIoCv4E0KA26/exec";
+const form = document.forms['submit-to--google-sheet']
+
+form.addEventListener('submit', e=>{
+    e.preventDefault()
+    fetch(scriptURL, {method: 'POST', body: new FormData(form)})
+    .then(response => console.log("Success", response))
+    .catch(error => console.error("Error!", error.message))
+})
+</script>
+</html>
