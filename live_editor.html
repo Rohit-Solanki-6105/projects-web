@@ -69,10 +69,21 @@ const output = document.getElementById("output");
 function updateOutput() {
     const html = htmlCode.value;
     const css = "<style>" + cssCode.value + "</style>";
-    const js =  jsCode.value ;
-    const combinedCode = html + css + "<script type='text/javascript'>" + js + "<//script>";
-    output.srcdoc = combinedCode;
-    output.contentWindow.eval(js);
+    const js = jsCode.value;
+
+    // create a new document for the iframe
+    const iframeDoc = document.implementation.createHTMLDocument();
+    iframeDoc.open();
+    iframeDoc.write(html + css);
+    iframeDoc.close();
+
+    // append the script tag and its content to the iframe's body
+    const scriptElement = iframeDoc.createElement("script");
+    scriptElement.textContent = js;
+    iframeDoc.body.appendChild(scriptElement);
+
+    // set the iframe's document as the srcdoc
+    output.srcdoc = iframeDoc.documentElement.outerHTML;
 }
 
 htmlCode.addEventListener("input", updateOutput);
