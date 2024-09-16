@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effect 1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        .item img{
+            max-width: 300px;
+            margin: 10px;
+            border-radius: 20px;
+        }
+
+        .item{
+            height: fit-content;
+            width: fit-content;
+        }
+
+        #box {
+            columns: 300px;
+            gap: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <script>
+            const box = document.getElementById('box');
+            for (let i = 0; i < 11; i++) {
+                box.innerHTML += `
+                    <div class="item item-${i}">
+                        <img src="${i+1}.jpg" alt="${i+1}">
+                    </div>
+                `;
+            }
+        </script>
+    </div>
+</body>
+
+</html>

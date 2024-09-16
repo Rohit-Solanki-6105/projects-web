@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effect 1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: 0.5s;
+        }
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(12, 29, 44);
+        }
+
+        .item{
+            height: 200px;
+            width: 100px;
+            filter: grayscale(1);
+            padding: 10px;
+            /* cubic bezier for scalable animation */
+            transition: 0.5s cubic-bezier(.87, -1.38, .03, 1.54);
+        }
+
+        .item img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .item:hover{
+            height: 300px;
+            width: 200px;
+            filter: grayscale(0);
+            transition: 0.5s cubic-bezier(.87, -1.38, .03, 1.54);
+        }
+
+        #box {
+            display: flex;
+            flex-direction: row;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <script>
+            const box = document.getElementById('box');
+            for (let i = 0; i < 11; i++) {
+                box.innerHTML += `
+                    <div class="item item-${i}">
+                        <img src="${i+1}.jpg" alt="${i+1}">
+                    </div>
+                `;
+            }
+        </script>
+    </div>
+</body>
+
+</html>

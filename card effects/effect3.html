@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effect 1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            height: 100vh;
+            width: 100%;
+            background-color: rgb(16, 21, 25);
+            text-align: center; /* centering content */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .item img{
+            max-width: 300px;
+        }
+
+        #box {
+            position: absolute;
+            width: 200px;
+            height: 250px;
+            top: 10%;
+            left: calc(50% - 100px); /* 50% - width.value */
+
+            transform-style: preserve-3d; /* 3d */
+            transform: perspective(1000px);
+
+            animation: rotate_3d_z 20s linear infinite;
+        }
+
+        /* rotateX for view from top or down in degrees */
+        /* changing only rotateY for full rotation from 0 to 360 deg */
+        @keyframes rotate_3d_z {
+            from{
+                transform: perspective(1000px) rotateX(-10deg) rotateY(0deg);
+            }
+            to{
+                transform: perspective(1000px) rotateX(-10deg) rotateY(360deg);
+            }
+        }
+
+        #box .item{
+            position: absolute;
+            inset: 0 0 0 0;
+
+            /* formula = ( position - 1) * (360deg / quantity) */
+            transform: 
+                rotateY(calc( ( var(--position) - 1 ) * (360 / var(--quantity)) * 1deg )) /* mul by 1deg for degree unit*/
+                translateZ(550px);
+        }
+
+        #box .item img{
+            /* height: 100%; */
+            width: 100%;
+            /* object-fit: cover; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" style="--quantity: 11;">
+        <script>
+            const box = document.getElementById('box');
+            for (let i = 0; i < 11; i++) {
+                box.innerHTML += `
+                    <div class="item item-${i}" style="--position: ${i+1};">
+                        <img src="${i+1}.jpg" alt="${i+1}">
+                    </div>
+                `;
+            }
+        </script>
+
+    </div>
+</body>
+
+</html>

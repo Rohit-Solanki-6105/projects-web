@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effect 1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(19, 18, 23);
+        }
+
+        .item img{
+            max-width: 100px;
+            border-radius: 10px;
+        }
+
+        #box{
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            transform-style: preserve-3d; /* for 3d */
+            transform: perspective(1000px);
+        }
+
+        .item{
+            filter: brightness(0);
+        }
+
+        .item:hover{
+            filter: brightness(1);
+            transform: translateZ(200px); /* moving forward in z*/
+        }
+
+        .item:hover + * {
+            filter: brightness(0.5);
+            transform: translateZ(200px) rotateY(40deg); /* moving forward in z + rotate on y*/
+        }
+        .item:hover + * + * {
+            filter: brightness(0.2);
+            transform: translateZ(100px) rotateY(20deg);
+        }
+        .item:hover + * + * + *{
+            filter: brightness(0.1);
+            transform: translateZ(70px) rotateY(10deg);
+        }
+
+        .item:has(+ * :hover) {
+            filter: brightness(0.5);
+            transform: translateZ(200px) rotateY(-40deg);
+        }
+        .item:has(+ * + * :hover) {
+            filter: brightness(0.2);
+            transform: translateZ(100px) rotateY(-20deg);
+        }
+        .item:has(+ * + * + * :hover){
+            filter: brightness(0.1);
+            transform: translateZ(70px) rotateY(-10deg);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <script>
+            const box = document.getElementById('box');
+            for (let i = 0; i < 11; i++) {
+                box.innerHTML += `
+                    <div class="item item-${i}">
+                        <img src="${i+1}.jpg" alt="${i+1}">
+                    </div>
+                `;
+            }
+        </script>
+    </div>
+</body>
+
+</html>
